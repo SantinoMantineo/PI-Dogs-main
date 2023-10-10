@@ -22,6 +22,8 @@ export default function SearchBar() {
     if(name.length > 3){
       await dispatch(dogByName(name))
       dispatch(orderDogs(order))
+    } else if(name.length === 0){
+      dispatch(dogById(1))
     } else{
       dispatch(clearDogs())
       dispatch(dogById(name))

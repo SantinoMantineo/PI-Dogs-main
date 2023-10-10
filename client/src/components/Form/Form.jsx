@@ -25,10 +25,25 @@ export default function Form() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Realiza las validaciones aquí antes de enviar los datos al servidor
-    if (!formData.name || !formData.temperament) {
+    if (!formData.name || !formData.temperament || !formData.maxWeight || !formData.minWeight || !formData.maxHeight || !formData.maxHeight || !formData.imagen || !formData.life_span) {
       alert('Por favor, complete los campos obligatorios.');
       return;
     }
+
+    let errorMessage = '';
+
+    if (typeof formData.name !== 'string') {
+      errorMessage = 'El nombre debe ser una cadena de texto.';
+    } else if (typeof formData.imagen !== 'string') {
+      errorMessage = 'La imagen debe ser una cadena de texto (URL).';
+    } else if (isNaN(formData.minHeight) || isNaN(formData.maxHeight) || isNaN(formData.minWeight) || isNaN(formData.maxWeight)) {
+      errorMessage = 'Las propiedades de altura y peso deben ser números válidos.';
+    }
+
+    if (errorMessage) {
+      alert(`Error de validación: ${errorMessage}`);
+    } else {
+
     try {
         let newDog = {
           name: formData.name,
@@ -53,6 +68,7 @@ export default function Form() {
       console.error('Error al enviar los datos al servidor:', error);
       console.log('Hubo un error al crear la raza de perro.');
     }
+  }
   };
 
   const handleBackClick = () => {

@@ -19,33 +19,32 @@ export default function Cards(props) {
     setCurrentPage(pageNumber);
   };
 
-  function findDuplicateIds(dogs) {
-    const duplicateIds = [];
+  // function findDuplicateIds(dogs) {
+  //   const duplicateIds = [];
     
-    for (let i = 0; i < dogs.length; i++) {
-      const currentId = dogs[i].id;
+  //   for (let i = 0; i < dogs.length; i++) {
+  //     const currentId = dogs[i].id;
       
-      for (let j = i + 1; j < dogs.length; j++) {
-        if (currentId === dogs[j].id && !duplicateIds.includes(currentId)) {
-          duplicateIds.push(currentId);
-        }
-      }
-    }
-    if (duplicateIds.length > 0) {
-      console.error("IDs duplicados encontrados:", duplicateIds);
-    } else {
-      console.log("No se encontraron IDs duplicados.");
-    }
-    return duplicateIds;
-  }
+  //     for (let j = i + 1; j < dogs.length; j++) {
+  //       if (currentId === dogs[j].id && !duplicateIds.includes(currentId)) {
+  //         duplicateIds.push(currentId);
+  //       }
+  //     }
+  //   }
+  //   if (duplicateIds.length > 0) {
+  //     console.error("IDs duplicados encontrados:", duplicateIds);
+  //   }
+  //   return duplicateIds;
+  // }
 
-  findDuplicateIds(dogs)
+  // findDuplicateIds(dogs)
+  
   return (
     <>
       <div className={style.container}>
         {dogsToShow.map((dog) => (
           <Card
-            key={dog.id }
+            key={dog.id + Math.random() * 10}
             id={dog?.id}
             name={dog?.name}
             weight={dog.weight ? dog.weight : dog.peso}

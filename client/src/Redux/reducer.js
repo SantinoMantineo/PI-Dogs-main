@@ -20,7 +20,6 @@ import {
 
   export default function rootReducer(state = initialState, action) {
     const { payload, type } = action;
-    console.log(initialState)
     switch (type) {
       case DOGBYNAME:
           return {

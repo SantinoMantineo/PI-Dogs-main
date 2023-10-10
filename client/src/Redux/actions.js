@@ -16,7 +16,6 @@ const endpoint = "http://localhost:3001";
   return async (dispatch) => {
     try {
       const { data } = await axios(`${endpoint}/dogs/s/name?name=${name}`);
-      console.log(data)
       return dispatch({
         type: DOGBYNAME,
         payload: data,
@@ -33,9 +32,7 @@ export const dogById = (id) => {
   return async (dispatch) => {
     try{
       const { data } = await axios(`${endpoint}/dogs/${id}`)
-      if(!data){data = 1}
       const dataArray = [data];
-      console.log(dataArray)
       return dispatch({
         type: DOGBYID,
         payload: dataArray
