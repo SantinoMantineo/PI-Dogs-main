@@ -1,7 +1,7 @@
 
 import style from "./Filter.module.css";
 import { useDispatch, useSelector  } from "react-redux";
-import { orderDogs, filterTemperaments, filterOrigin } from "../../redux/actions";
+import { orderDogs, filterTemperaments, filterOrigin } from "../../Redux/actions";
 
 export default function Filter () {
   const dispatch = useDispatch();

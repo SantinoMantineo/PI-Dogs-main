@@ -4,7 +4,7 @@ import SearchBar from "../SearchBar/SearchBar";
 import style from "./Navbar.module.css";
 import Logo from "../../assets/logo.png";
 import { useDispatch} from "react-redux";
-import { clearDogs, allDogs } from "../../redux/actions";
+import { clearDogs, allDogs } from "../../Redux/actions";
 import Filter from "./filter";
 import Form from "../Form/Form"
 

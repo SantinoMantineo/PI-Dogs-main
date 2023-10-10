@@ -3,7 +3,7 @@ import { Routes, Route, useNavigate } from 'react-router-dom';
 import style from "./App.module.css"
 // Importaciones de redux
 import { useDispatch, useSelector } from "react-redux";
-import { clearDogs, allDogs } from "./redux/actions";
+import { clearDogs, allDogs } from "./Redux/actions";
 // Importaciones de componentes
 import LandingPage from "./components/Landing/LandingPage"
 import Cards from "./components/Cards/Cards";
