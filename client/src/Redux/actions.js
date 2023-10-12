@@ -7,6 +7,7 @@ export const FILTER_TEMP = "FILTER_TEMP"
 export const ALLTEMP = 'ALLTEMP'
 export const CLEAR_DOGS = 'CLEAR_DOGS'
 export const FILTER_ORIGIN = "FILTER_ORIGIN"
+export const FILTER_LIFE = "FILTER_LIFE"
 
 import axios from "axios"
 
@@ -100,4 +101,13 @@ export const clearDogs = () => {
             payload: created
         })
     }
+}
+
+export const filterLife = (life) => {
+  return (dispatch) =>{
+    return dispatch({
+      type:FILTER_LIFE,
+      payload: life
+    })
+  }
 }

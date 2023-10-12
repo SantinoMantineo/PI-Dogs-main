@@ -8,6 +8,7 @@ import {
   ALLTEMP,
   CLEAR_DOGS,
   FILTER_ORIGIN,
+  FILTER_LIFE
   } from "./actions";
   
   let initialState = {     
@@ -247,7 +248,37 @@ import {
                   searchError: filteredDogs.length ? false : true
               }
           }
-
+          case FILTER_LIFE:
+            let filteredDogsByLife;
+          console.log(payload)
+            if (payload === "Short") {
+                filteredDogsByLife = state.allDogs.filter((dog) => {
+                    const firstPart = (dog.life_span.split("-")[0]).slice(0, 2);
+                    return parseInt(firstPart) >= 10 && parseInt(firstPart) <= 13; 
+                });
+            } else if (payload === "Medium") {
+                filteredDogsByLife = state.allDogs.filter((dog) => {
+                    const firstPart = (dog.life_span.split("-")[0]).slice(0, 2);
+                    return parseInt(firstPart) >= 13 && parseInt(firstPart) < 15; 
+                });
+            } else {
+                filteredDogsByLife = state.allDogs.filter((dog) => {
+                    const firstPart = (dog.life_span.split("-")[0]).slice(0, 2);
+                    return parseInt(firstPart) >= 15;
+                });
+            }
+        
+            return {
+                ...state,
+                dogs: filteredDogsByLife,
+                orderAndFilter: {
+                    ...state.orderAndFilter,
+                    originFilter: "all",
+                    tempFilter: "All",
+                },
+                searchError: filteredDogsByLife.length > 0 ? false : true,
+            }
+    
       default:
           return {...state}
   }
