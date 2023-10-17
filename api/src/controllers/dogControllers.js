@@ -200,7 +200,6 @@ const dbDogs = async() => {
       throw new Error(error)
   }
 }
-
 module.exports = {
   getAllDogs,
   dbDogs,
